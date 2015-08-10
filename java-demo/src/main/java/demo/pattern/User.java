@@ -1,5 +1,14 @@
 package demo.pattern;
 
+/**
+ * builder 设计模式
+ * 
+ * 类名称：User   
+ * 类描述：   
+ * 创建时间：2015-8-10 下午2:39:10   
+ * 修改时间：2015-8-10 下午2:39:10
+ * 修改备注：   
+ */
 public class User
 {
     private final String firstName; // required
