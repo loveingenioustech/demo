@@ -13,5 +13,5 @@ hs_err_pid*
 *.classpath
 *.project
 *.prefs
-*.mymetadata
-*.jsdtscope
+/target
+/.settings
