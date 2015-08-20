@@ -10,6 +10,15 @@ public class EnumDemo
         demo1();
 
         demo2();
+
+        demoRandom();
+    }
+
+    private static void demoRandom(){
+        System.out.println("Start Random:");
+        for (int i = 0; i < 20; i++){
+            System.out.print(Enums.random(FieldType.class) + " ");
+        }        
     }
 
     private static void printValid(IntelligentFieldType field, String fieldValue, boolean valid)
