@@ -1,5 +1,9 @@
 package demo.basic;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -27,6 +31,32 @@ public class CloneObject implements Cloneable
         return cloned;
     }
 
+    /*// 另一种克隆的算法，先序列化，然后再反序列化 
+    public Object clone()
+    {
+        try
+        {
+            // save the object to a byte array
+            ByteArrayOutputStream bout = new ByteArrayOutputStream();
+            ObjectOutputStream out = new ObjectOutputStream(bout);
+            out.writeObject(this);
+            out.close();
+
+            // read a clone of the object from the byte array
+            ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
+            ObjectInputStream in = new ObjectInputStream(bin);
+            Object ret = in.readObject();
+            in.close();
+
+            return ret;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+     */
+    
     public void raiseSalary(double byPercent)
     {
         double raise = salary * byPercent / 100;

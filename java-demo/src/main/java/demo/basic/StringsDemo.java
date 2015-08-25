@@ -1,5 +1,7 @@
 package demo.basic;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class StringsDemo
 {
 
@@ -7,6 +9,26 @@ public class StringsDemo
      * @param args
      */
     public static void main(String[] args)
+    {
+        // testSuffix();
+
+        testSplit("温度适宜,尽情玩耍吧");
+    }
+
+    private static void testSplit(String input)
+    {
+        String[] splitArr = StringUtils.split(input, "|AT|");
+
+        for (String s : splitArr)
+        {
+            System.out.println(s);
+        }
+    }
+
+    /**
+     * 
+     */
+    private static void testSuffix()
     {
         String filename = "test.xls";
         if (filename.endsWith(".txt"))
@@ -29,7 +51,6 @@ public class StringsDemo
         {
             System.out.println("Other type of file");
         }
-
     }
 
 }
