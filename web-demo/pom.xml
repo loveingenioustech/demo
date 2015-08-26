@@ -14,6 +14,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.1.2.RELEASE</version>
+		</dependency>
+
 		<!-- Hibernate 依赖 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -27,11 +34,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.2.3.Final</version>
 		</dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.18</version>
-        </dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+		</dependency>
 
 		<!-- Servlet -->
 		<dependency>
