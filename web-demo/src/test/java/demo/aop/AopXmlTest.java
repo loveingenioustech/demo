@@ -68,4 +68,16 @@ public class AopXmlTest
         DependencyBean myBean = (DependencyBean) ctx.getBean("myBean");
         myBean.execute();
     }
+
+    @Test
+    public void testAspectJAnnotation()
+    {
+        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+        ctx.load("classpath:META-INF/spring/app-annotation-xml.xml");
+        ctx.refresh();
+
+        AnnotationBean myBean = (AnnotationBean) ctx.getBean("myBean");
+        myBean.execute();
+    }
+
 }
