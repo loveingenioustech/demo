@@ -18,7 +18,9 @@ public class ZookeeperDemo
     {
         // testConnect();
 
-        testDataWatcher();
+        // testDataWatcher();
+
+        testClusterMonitor();
     }
 
     private static void testConnect() throws IOException
@@ -55,6 +57,12 @@ public class ZookeeperDemo
         DataWatcher dw = new DataWatcher();
         dw.printData();
         dw.run();
+    }
+
+    private static void testClusterMonitor() throws IOException, KeeperException, InterruptedException
+    {
+        String hostPort = "192.168.1.192:2181";
+        new ClusterMonitor(hostPort).run();
     }
 
 }
