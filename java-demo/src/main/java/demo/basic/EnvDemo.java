@@ -15,11 +15,11 @@ public class EnvDemo
      */
     public static void main(String[] args) throws BackingStoreException
     {
-        // showProperties();
+        showProperties();
 
-        // showVariables();
+        showVariables();
 
-        testPreferences();
+        // testPreferences();
     }
 
     /**
@@ -27,6 +27,8 @@ public class EnvDemo
      */
     private static void showVariables()
     {
+        System.out.println("=========================================");
+        
         Map<String, String> vars = System.getenv();
 
         for (String var : vars.keySet())
