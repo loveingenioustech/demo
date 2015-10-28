@@ -1,13 +1,13 @@
 package org.activiti.designer.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.io.FileInputStream;
 
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
+import org.activiti.engine.impl.util.ReflectUtil;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.test.ActivitiRule;
 import org.junit.Rule;
@@ -15,9 +15,6 @@ import org.junit.Test;
 
 public class ProcessTestMyProcess
 {
-
-    private String filename = "D:\\Cloud\\Source\\activiti\\CustomUI\\src\\main\\resources\\diagrams\\DemoProcess.bpmn";
-
     @Rule
     public ActivitiRule activitiRule = new ActivitiRule();
 
@@ -25,7 +22,8 @@ public class ProcessTestMyProcess
     public void startProcess() throws Exception
     {
         RepositoryService repositoryService = activitiRule.getRepositoryService();
-        repositoryService.createDeployment().addInputStream("myProcess.bpmn20.xml", new FileInputStream(filename))
+        repositoryService.createDeployment()
+                .addInputStream("myProcess.bpmn20.xml", ReflectUtil.getResourceAsStream("diagrams/DemoProcess.bpmn"))
                 .deploy();
         RuntimeService runtimeService = activitiRule.getRuntimeService();
         Map<String, Object> variableMap = new HashMap<String, Object>();
