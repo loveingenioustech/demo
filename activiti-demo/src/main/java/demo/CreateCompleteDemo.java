@@ -9,6 +9,36 @@ import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
 
+/**
+ * 获得配置
+ * 
+ * ProcessEngineConfiguration.
+ * createProcessEngineConfigurationFromResourceDefault();
+ * ProcessEngineConfiguration.createProcessEngineConfigurationFromResourc
+ * e(String resource);
+ * ProcessEngineConfiguration.createProcessEngineConfigurationFromResourc
+ * e(String resource, String beanName);
+ * ProcessEngineConfiguration.createProcessEngineConfigurationFromInputSt
+ * ream(InputStream inputStream);
+ * ProcessEngineConfiguration.createProcessEngineConfigurationFromInputSt
+ * ream(InputStream inputStream, String beanName);
+ * 
+ * 创建 ProcessEngineprocessEngine
+ * ProcessEngineprocessEngine = ProcessEngineConfiguration.
+ * createStandaloneInMemProcessEngineConfiguration()
+ * .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_
+ * UPDATE_FALSE)
+ * .setJdbcUrl("jdbc:h2:mem:my-own-db;DB_CLOSE_DELAY=1000")
+ * .setJobExecutorActivate(true)
+ * .buildProcessEngine();
+ * 类名称：CreateCompleteDemo
+ * 类描述：
+ * 创建时间：2015年11月17日 下午5:44:00
+ * 修改时间：2015年11月17日 下午5:44:00
+ * 修改备注：
+ * 
+ * @version
+ */
 public class CreateCompleteDemo
 {
 
