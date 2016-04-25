@@ -1,0 +1,12 @@
+package drools.demo.rules
+
+import demo.drools.model.eshop.Item;
+import demo.drools.model.eshop.Item.Category;
+
+rule "Classify Item - Low Range"
+    when
+        $i: Item(cost < 200)
+    then
+        $i.setCategory(Category.LOW_RANGE);
+end
+
