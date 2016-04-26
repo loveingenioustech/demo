@@ -1,0 +1,17 @@
+package rules;
+
+import demo.drools.model.eshop.Order;
+import demo.drools.model.eshop.Customer;
+import demo.drools.model.eshop.Discount;
+
+rule "Gold Customers - 20% Discount"
+    when
+        
+        $o: Order( $customer: customer, discount == null )
+        $c: Customer( category == Category.GOLD, this == $customer )
+    then
+        System.out.println("Executing Gold Customer 20% Discount Rule!");
+        $o.setDiscount(new Discount(20.0));
+        update($o);
+end
+

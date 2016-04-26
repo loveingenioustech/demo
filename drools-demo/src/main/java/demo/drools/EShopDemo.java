@@ -14,7 +14,7 @@ public class EShopDemo
         // Bootstrapping a Rule Engine Session
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession = kContainer.newKieSession();
+        KieSession kSession = kContainer.newKieSession("demo");
 
         // before fire rule
         Item item = new Item("A", 123.0, 234.0);
