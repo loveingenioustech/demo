@@ -30,18 +30,6 @@ public class IODemo
             PrintWriter out = new PrintWriter(new FileWriter("employee.dat"));
             writeData(staff, out);
             out.close();
-
-            // retrieve all records into a new array
-            BufferedReader in = new BufferedReader(new FileReader("employee.dat"));
-            Employee[] newStaff = readData(in);
-            in.close();
-
-            // print the newly read employee records
-            for (Employee e : newStaff)
-            {
-                System.out.println(e);
-            }
-
         }
         catch (IOException exception)
         {
@@ -107,7 +95,7 @@ public class IODemo
             employees[i] = new Employee();
             employees[i].readData(in);
         }
-        
+
         return employees;
     }
 }
