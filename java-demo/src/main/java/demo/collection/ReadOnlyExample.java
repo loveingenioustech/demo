@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * Collections类里实现了不可变结合，它通过装饰模式实现了对一般集合的封装。
+ *
  * Created by Administrator on 2017-04-25.
  */
 public class ReadOnlyExample {
