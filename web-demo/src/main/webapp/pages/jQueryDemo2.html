@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Demo 1</title>
+    <style>
+        .outer {
+            padding 0;
+            margin: 0;
+        }
+
+        .nav_bar {
+            width: 850px;
+            margin-top: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #f5f5f5;
+            border: solid #bfbfbf 2px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .nav_bar ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav_bar li {
+            padding: 6px 8px 6px 8px;
+            border-right: solid #bfbfbf 2px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline;
+            float: left;
+        }
+
+        .nav_bar li:hover {
+            background-color: #e2e2e2;
+        }
+
+        .box {
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: solid #bfbfbf 2px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+
+        .box {
+            display: none;
+            position: relative;
+        }
+
+        .container {
+            width: 850px;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        #p1 {
+            display: block;
+        }
+
+    </style>
+
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <script>
+        function scrollWin(){
+            $('html,body').animate({
+                scrollTop: $("#scrollToHere").offset().top
+            }, 2000);
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" onclick="scrollWin();" value="Scroll up" />
+
+
+<div class="outer"><!--Here is the nav bar -->
+    <div class="nav_bar"><!--Inside our nav bar we have a list to display all of our pages -->
+        <ul>
+            <li class="p1">
+                Home
+            </li>
+            <li class="p2">
+                Page 1
+            </li>
+            <li class="p3">
+                Page 2
+            </li>
+            <li class="p4">
+                Page 3
+            </li>
+        </ul>
+    </div><!-- Now for the page content -->
+    <div class="container"><!-- We have a div for every page -->
+        <div class="box"></div>
+        <div class="box" id="p1"><h3>Home</h3></div>
+        <div class="box" id="p2"><h3>Page 1</h3></div>
+        <div class="box" id="p3"><h3>Page 2</h3></div>
+        <div class="box" id="p4"><h3>Page 3</h3></div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <div id="scrollToHere">
+        Scroll to here
+    </div>
+</div>
+
+
+</body>
+</html>
