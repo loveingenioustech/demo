@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript技巧</title>
+</head>
+<body>
+
+<script>
+    //     生成对象和数组
+    // 方法1
+    var car = new Object();
+    car.colour = 'red';
+    car.wheels = 4;
+    car.hubcaps = 'spinning';
+    car.age = 4;
+    console.log(car);
+
+    // 方法2
+    var car1 = {
+        colour: 'red',
+        wheels: 4,
+        hubcaps: 'spinning',
+        age: 4
+    }
+    console.log(car1);
+
+    // 数组方法1
+    var movies1
+        = new Array(
+        'Transformers','Transformers2','Avatar','Indiana Jones 4'
+    );
+    console.log(movies1);
+
+    // 数组方法2
+    var movies2
+        = [
+        'Transformers','Transformers2','Avatar','Indiana Jones 4'
+    ];
+    console.log(movies2);
+
+</script>
+
+</body>
+</html>
