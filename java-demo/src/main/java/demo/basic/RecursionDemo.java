@@ -32,7 +32,9 @@ public class RecursionDemo {
 //
 //        demoBetterBigFactorial();
 
-        demoTail();
+//        demoTail();
+
+        demoCycleWithoutFor();
     }
 
     private static void demoNormalFactorial() {
@@ -174,6 +176,21 @@ public class RecursionDemo {
 
     private static void demoTail() {
         System.out.println(new TailRecursiveCall().countA("AAA rating"));
+    }
+
+    private static void demoCycleWithoutFor(){
+        loopLike(1);
+    }
+
+    private static int loopLike(int n){
+        if (n > 100){
+            return 0;
+        }
+        else{
+            System.out.println("Hello World");
+        }
+
+        return loopLike(n+1);
     }
 }
 
