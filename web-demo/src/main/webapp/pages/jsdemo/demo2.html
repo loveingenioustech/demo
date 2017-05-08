@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Browser Viewport Size </title>
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+
+</head>
+<body>
+
+<script>
+    // Core JavaScript
+    // Get Browser Viewport Width
+    var width = window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
+
+    // Get Browser Viewport Height
+    var height = window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.body.clientHeight;
+
+    console.log("Width: " + width + " Height: " + height);
+
+    // jQuery
+    // Get Browser Viewport Width
+    var width1 = $(window).width();
+
+    // Get Browser Viewport Height
+    var height1 = $(window).height();
+
+    console.log("Width: " + width1 + " Height: " + height1);
+
+</script>
+
+</body>
+</html>
