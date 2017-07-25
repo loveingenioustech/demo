@@ -1,4 +1,4 @@
-package demo;
+package demo.gecco;
 
 /**
  * Created by Administrator on 2017-04-26.
