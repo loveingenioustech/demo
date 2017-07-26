@@ -4,21 +4,22 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.List;
 
 /**
- *
- *
+ * Created by Administrator on 2017-07-26.
  */
-@SpringBootApplication
-public class App extends WebMvcConfigurerAdapter {
+public class App1 {
+    public static void main(String args[]){
+        SpringApplication.run(App.class, args);
+    }
 
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+    @Bean
+    public HttpMessageConverters configureMessageConverters() {
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
 
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
@@ -26,12 +27,8 @@ public class App extends WebMvcConfigurerAdapter {
 
         fastConverter.setFastJsonConfig(fastJsonConfig);
 
-        converters.add(fastConverter);
+        HttpMessageConverter<?> converter = fastConverter;
+        return new HttpMessageConverters(converter);
     }
 
-
-    public static void main(String[] args) {
-        // 在main 方法里启动应用程序
-        SpringApplication.run(App.class, args);
-    }
 }
