@@ -5,8 +5,12 @@
   <groupId>demo</groupId>
   <artifactId>spring-cloud-demo</artifactId>
   <version>1.0-SNAPSHOT</version>
+
   <packaging>jar</packaging>
 
+  <!--
+  <packaging>war</packaging>
+  -->
   <name>spring-cloud-demo</name>
   <url>http://maven.apache.org</url>
 
@@ -26,6 +30,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
       <!-- 这里无需指定版本号，因为parent 为自动帮我们选择最合适的版本 -->
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
