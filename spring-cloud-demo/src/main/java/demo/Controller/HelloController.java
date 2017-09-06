@@ -1,12 +1,10 @@
 package demo.Controller;
 
-import demo.model.Person;
-import org.springframework.web.bind.annotation.PathVariable;
+import demo.domain.Person;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2017-07-25.
