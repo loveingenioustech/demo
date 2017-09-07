@@ -1,5 +1,6 @@
 package demo.domain;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Set;
 
@@ -9,10 +10,18 @@ import java.util.Set;
  *
  */
 @XmlRootElement
+@Entity
 public class Team {
+    @Id
+    @GeneratedValue
+    Long id;
+
     String name;
     String location;
     String mascot;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="teamId")
     Set<Player> players;
 
     public Team() {
@@ -25,6 +34,14 @@ public class Team {
         this.location = location;
         this.mascot = mascot;
         this.players = players;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

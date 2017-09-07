@@ -1,11 +1,19 @@
 package demo.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by Administrator on 2017-09-06.
  */
+@Entity
 public class Player {
+    @Id
+    @GeneratedValue
+    Long id;
+
     String name;
     String position;
 
@@ -17,6 +25,14 @@ public class Player {
         this();
         this.name = name;
         this.position = position;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
