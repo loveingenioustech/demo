@@ -1,4 +1,4 @@
-package demo.Controller;
+package demo.controller;
 
 import demo.domain.Person;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by Administrator on 2017-07-25.
  *
- * @RestController 等价于 @Controller 和 @RequestBody
+ * @RestController 等价于 @controller 和 @RequestBody
  */
 @RestController
 public class HelloController {

@@ -1,18 +1,11 @@
-package demo.Controller;
+package demo.controller;
 
-import demo.domain.Person;
-import demo.domain.Player;
 import demo.domain.Team;
 import demo.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.PostConstruct;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Administrator on 2017-09-06.
