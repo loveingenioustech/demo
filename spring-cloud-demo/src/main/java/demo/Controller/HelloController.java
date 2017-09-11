@@ -16,12 +16,17 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello() {
-        return "hello-2";
+        return "hello";
     }
 
     @RequestMapping("/hello2")
     public String hello2() {
-        return "hello hello";
+        return "hello-2";
+    }
+
+    @RequestMapping("/hello3")
+    public String hello3() {
+        return "hello-3";
     }
 
     @RequestMapping("/getPerson")
