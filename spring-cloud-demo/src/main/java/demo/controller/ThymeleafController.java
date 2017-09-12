@@ -16,4 +16,14 @@ public class ThymeleafController {
         model.put("name", name);
         return "hello";
     }
+
+    /**
+     * 返回html模板.
+     */
+    @RequestMapping("/helloThymeleaf")
+    public String helloHtml(Map<String,Object> map){
+        map.put("hello","from TemplateController.helloHtml");
+        return "/thymeleaf";
+    }
+
 }
