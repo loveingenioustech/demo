@@ -36,4 +36,20 @@ public class CatController {
         return catService.getAll();
     }
 
+    @RequestMapping("/findByCatName")
+        public Cat findByCatName(String catName){
+        return catService.findByCatName(catName);
+    }
+
+    @RequestMapping("/findByCatName2")
+    public Cat findByCatName2(String catName){
+        System.out.println("CatController.findByCatName2()");
+        return catService.findByCatName2(catName);
+
+    }
+
+    @RequestMapping("/selectByCatName")
+    public Cat selectByCatName(String catName){
+        return catService.selectByCatName(catName);
+    }
 }
