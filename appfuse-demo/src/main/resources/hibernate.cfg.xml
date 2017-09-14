@@ -6,7 +6,7 @@
 
 <hibernate-configuration>
     <session-factory>
-        <mapping class="org.appfuse.model.User"/>
-        <mapping class="org.appfuse.model.Role"/>
+        <mapping class="demo.model.User"/>
+        <mapping class="demo.model.Role"/>
     </session-factory>
 </hibernate-configuration>
