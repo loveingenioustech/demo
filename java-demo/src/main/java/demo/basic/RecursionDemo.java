@@ -1,5 +1,8 @@
 package demo.basic;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,8 +22,10 @@ public class RecursionDemo {
      *
      * @Fields FACTORIAL_ARRAY
      */
+    @NotNull
     private static int[] FACTORIAL_ARRAY = new int[]{1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
 
+    @NotNull
     private static Map<BigInteger, BigInteger> map = new HashMap<BigInteger, BigInteger>(10000);
 
     public static void main(String[] args) {
@@ -128,7 +133,7 @@ public class RecursionDemo {
      * @param value
      * @return
      */
-    private static BigInteger noramlBigCalc(BigInteger value) {
+    private static BigInteger noramlBigCalc(@NotNull BigInteger value) {
         if (value.compareTo(BigInteger.valueOf(0)) == 0) {
             return BigInteger.valueOf(1);
         } else {
@@ -143,7 +148,7 @@ public class RecursionDemo {
      * @param value
      * @return
      */
-    private static BigInteger betterBigCalc(BigInteger value) {
+    private static BigInteger betterBigCalc(@NotNull BigInteger value) {
         if (value.compareTo(BigInteger.valueOf(0)) == 0) {
             return BigInteger.valueOf(1);
         } else {
@@ -203,7 +208,7 @@ public class RecursionDemo {
  * 这些无用信息可以丢弃，然后用一组新的参数来调用一次递归方法来产生一个新的结果。这也就是说，栈调用减少带来了内存消耗减少并且程序的性能更好。
  */
 class TailRecursiveCall {
-    public int countA(String input) {
+    public int countA(@Nullable String input) {
         // exit condition – recursive calls must have an exit condition
         if (input == null || input.length() == 0) {
             return 0;
@@ -211,7 +216,7 @@ class TailRecursiveCall {
         return countA(input, 0);
     }
 
-    public int countA(String input, int count) {
+    public int countA(@NotNull String input, int count) {
         if (input.length() == 0) {
             return count;
         }

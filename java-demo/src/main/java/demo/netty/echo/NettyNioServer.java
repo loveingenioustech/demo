@@ -15,6 +15,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.jetbrains.annotations.NotNull;
 
 public class NettyNioServer
 {
@@ -29,7 +30,7 @@ public class NettyNioServer
                     .childHandler(new ChannelInitializer<SocketChannel>()
                     { // 3
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception
+                        public void initChannel(@NotNull SocketChannel ch) throws Exception
                         {
                             ch.pipeline().addLast(new ChannelInboundHandlerAdapter()
                             { // 4

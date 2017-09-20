@@ -1,5 +1,7 @@
 package demo.algorithm;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 /**
@@ -32,7 +34,7 @@ public class BinarySearch {
     }
 
     // here we define binary search method
-    static int binarySearch(int[] search, int find) {
+    static int binarySearch(@NotNull int[] search, int find) {
         int start, end, midPt;
         start = 0;
         end = search.length - 1;

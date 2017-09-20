@@ -5,6 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
+import org.jetbrains.annotations.NotNull;
 
 public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf>
 {
@@ -19,7 +20,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf>
      * @see io.netty.channel.SimpleChannelInboundHandler#channelRead0(io.netty.channel.ChannelHandlerContext, java.lang.Object)  
      */
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, ByteBuf in) throws Exception
+    protected void channelRead0(ChannelHandlerContext ctx, @NotNull ByteBuf in) throws Exception
     {
         System.out.println("Client received: " + in.toString(CharsetUtil.UTF_8));
     }
@@ -38,7 +39,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf>
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
+    public void exceptionCaught(ChannelHandlerContext ctx, @NotNull Throwable cause) throws Exception
     {
         cause.printStackTrace();
         ctx.close();

@@ -1,5 +1,7 @@
 package demo.test.perf;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * 类名称：PerfPerfTestParam
  * 类描述：用于数据传输 A "data transfer object."
@@ -31,7 +33,8 @@ public class PerfTestParam
      * @param values
      * @return
      */
-    public static PerfTestParam[] array(int... values)
+    @NotNull
+    public static PerfTestParam[] array(@NotNull int... values)
     {
         int size = values.length / 2;
         PerfTestParam[] result = new PerfTestParam[size];
@@ -50,7 +53,8 @@ public class PerfTestParam
      * @param values
      * @return
      */
-    public static PerfTestParam[] array(String[] values)
+    @NotNull
+    public static PerfTestParam[] array(@NotNull String[] values)
     {
         int[] vals = new int[values.length];
         for (int i = 0; i < vals.length; i++)

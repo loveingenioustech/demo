@@ -1,5 +1,7 @@
 package demo.reflection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -9,6 +11,7 @@ import java.util.Properties;
 interface InputModule {
     boolean isEnd();
 
+    @NotNull
     String readLine();
 }
 
@@ -29,7 +32,7 @@ public class WorkflowEngine {
     private OutputModule myOutput;
     private Properties myProps;
 
-    public WorkflowEngine(String configPath) {
+    public WorkflowEngine(@NotNull String configPath) {
         try {
             loadPropertiesFromFile(configPath);
         } catch (IOException e1) {
@@ -99,7 +102,7 @@ public class WorkflowEngine {
         }
     }
 
-    public static String reverse(String input) {
+    public static String reverse(@NotNull String input) {
         return new StringBuffer(input).reverse().toString();
     }
 
@@ -108,7 +111,7 @@ public class WorkflowEngine {
      * @param fName
      * @throws IOException
      */
-    private void loadPropertiesFromFile(String fName) throws IOException {
+    private void loadPropertiesFromFile(@NotNull String fName) throws IOException {
         myProps = new Properties();
         myProps.load(new FileInputStream(fName));
     }

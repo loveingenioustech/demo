@@ -1,5 +1,7 @@
 package demo.negative;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.awt.*;
 
 /**
@@ -25,6 +27,7 @@ public class NoClone {
  *
  */
 class Example{
+    @NotNull
     private Dimension d = new Dimension (0, 0);
     public Example (){ }
 
@@ -41,6 +44,7 @@ class Example{
      *
      * @return
      */
+    @NotNull
     public synchronized Dimension getValues(){
         // Ooops! Breaks encapsulation
         return d;

@@ -8,6 +8,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.jetbrains.annotations.NotNull;
 
 public class EchoServer
 {
@@ -28,7 +29,7 @@ public class EchoServer
                     .childHandler(new ChannelInitializer<SocketChannel>()
                     {
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception
+                        public void initChannel(@NotNull SocketChannel ch) throws Exception
                         {
                             // 绑定 EchoServerHandler
                             ch.pipeline().addLast(new EchoServerHandler());

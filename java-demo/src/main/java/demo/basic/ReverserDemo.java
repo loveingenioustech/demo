@@ -1,5 +1,7 @@
 package demo.basic;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Created by Administrator on 2017-05-05.
  */
@@ -20,7 +22,8 @@ public class ReverserDemo {
      * @param str
      * @return
      */
-    public static String reverse1(String str) {
+    @Nullable
+    public static String reverse1(@Nullable String str) {
         if ((null == str) || (str.length() <= 1)) {
             return str;
         }
@@ -33,7 +36,8 @@ public class ReverserDemo {
      * @param str
      * @return
      */
-    public static String reverse2(String str) {
+    @Nullable
+    public static String reverse2(@Nullable String str) {
         if ((null == str) || (str.length() <= 1)) {
             return str;
         }
@@ -45,7 +49,8 @@ public class ReverserDemo {
      * @param str
      * @return
      */
-    public static String reverse3(String str) {
+    @Nullable
+    public static String reverse3(@Nullable String str) {
         if ((null == str) || (str.length() <= 1)) {
             return str;
         }
@@ -66,7 +71,8 @@ public class ReverserDemo {
      * @param str
      * @return
      */
-    public static String reverse4(String str) {
+    @Nullable
+    public static String reverse4(@Nullable String str) {
         if ((null == str) || (str.length() <= 1)) {
             return str;
         }
@@ -86,7 +92,8 @@ public class ReverserDemo {
      * @param str
      * @return
      */
-    public static String reverse5(String str) {
+    @Nullable
+    public static String reverse5(@Nullable String str) {
         if ((null == str) || (str.length() <= 1)) {
             return str;
         }

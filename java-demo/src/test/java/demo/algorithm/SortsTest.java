@@ -1,5 +1,6 @@
 package demo.algorithm;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,7 +65,7 @@ public class SortsTest
     /**
      * @param sortNumbers
      */
-    private void printNumbers(int[] sortNumbers)
+    private void printNumbers(@NotNull int[] sortNumbers)
     {
         for (int i : sortNumbers)
         {

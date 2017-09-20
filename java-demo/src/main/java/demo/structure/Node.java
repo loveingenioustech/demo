@@ -1,5 +1,7 @@
 package demo.structure;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import java.util.List;
  */
 public class Node {
     private String name;
+    @NotNull
     private List<Node> children = new ArrayList<Node>();
     private Node parent;
 

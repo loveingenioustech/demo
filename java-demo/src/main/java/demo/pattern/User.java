@@ -1,5 +1,7 @@
 package demo.pattern;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * builder 设计模式
  * 
@@ -21,7 +23,7 @@ public class User
 
     private final String address; // optional
 
-    private User(UserBuilder builder)
+    private User(@NotNull UserBuilder builder)
     {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
@@ -84,24 +86,28 @@ public class User
             this.lastName = lastName;
         }
 
+        @NotNull
         public UserBuilder age(int age)
         {
             this.age = age;
             return this;
         }
 
+        @NotNull
         public UserBuilder phone(String phone)
         {
             this.phone = phone;
             return this;
         }
 
+        @NotNull
         public UserBuilder address(String address)
         {
             this.address = address;
             return this;
         }
 
+        @NotNull
         public User build()
         {
             return new User(this);

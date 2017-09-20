@@ -1,8 +1,12 @@
 package demo.collection;
 
+import org.jetbrains.annotations.Nullable;
+
 public class Pair<T>
 {
+    @Nullable
     private T first;
+    @Nullable
     private T second;
 
     public Pair()
@@ -17,6 +21,7 @@ public class Pair<T>
         this.second = second;
     }
 
+    @Nullable
     public T getFirst()
     {
         return first;
@@ -27,6 +32,7 @@ public class Pair<T>
         this.first = first;
     }
 
+    @Nullable
     public T getSecond()
     {
         return second;

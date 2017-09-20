@@ -1,5 +1,6 @@
 package demo.asm;
 
+import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -13,7 +14,7 @@ class AddSecurityCheckClassAdapter extends ClassVisitor {
     }
     // 重写 visitMethod，访问到 "operation" 方法时，
     // 给出自定义 MethodVisitor，实际改写方法内容
-    public MethodVisitor visitMethod(final int access, final String name,
+    public MethodVisitor visitMethod(final int access, @NotNull final String name,
                                      final String desc, final String signature, final String[] exceptions) {
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature,exceptions);
         MethodVisitor wrappedMv = mv;

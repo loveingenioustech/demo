@@ -1,5 +1,7 @@
 package demo.concurrency;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -90,6 +92,7 @@ class Sum2 implements Callable<String> {
      * method where the thread execution will start
      * this can return a value
      */
+    @NotNull
     public String call() {
         int sum = 0;
         for (int i = 0; i <= maxNumber; i++) {

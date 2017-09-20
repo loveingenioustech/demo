@@ -1,11 +1,14 @@
 package demo.Performance;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 
 /**
  * Created by Administrator on 2017-08-01.
  */
 public class MyThread extends Thread {
+    @NotNull
     HashMap<Long,byte[]> map=new HashMap<Long,byte[]>();
     @Override
     public void run(){

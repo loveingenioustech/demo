@@ -1,5 +1,7 @@
 package demo.basic;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -97,7 +99,7 @@ public enum IntelligentFieldType
         }
     }
 
-    public static IntelligentFieldType lookup(String fieldName)
+    public static IntelligentFieldType lookup(@NotNull String fieldName)
     {
         return nameToFieldTypeMap.get(fieldName.toLowerCase());
     }

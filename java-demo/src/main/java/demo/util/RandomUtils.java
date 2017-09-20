@@ -1,18 +1,20 @@
 package demo.util;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class RandomUtils
 {
     // Fill an existing array:
-    public static <T> T[] array(T[] a, Generator<T> gen)
+    public static <T> T[] array(@NotNull T[] a, @NotNull Generator<T> gen)
     {
         return new CollectionData<T>(gen, a.length).toArray(a);
     }
 
     // Create a new array:
     @SuppressWarnings("unchecked")
-    public static <T> T[] array(Class<T> type, Generator<T> gen, int size)
+    public static <T> T[] array(Class<T> type, @NotNull Generator<T> gen, int size)
     {
         T[] a = (T[]) java.lang.reflect.Array.newInstance(type, size);
         return new CollectionData<T>(gen, size).toArray(a);
@@ -36,14 +38,15 @@ class CollectionData<T> extends ArrayList<T>
      */
     private static final long serialVersionUID = 3067323535457803468L;
 
-    public CollectionData(Generator<T> gen, int quantity)
+    public CollectionData(@NotNull Generator<T> gen, int quantity)
     {
         for (int i = 0; i < quantity; i++)
             add(gen.next());
     }
 
     // A generic convenience method:
-    public static <T> CollectionData<T> list(Generator<T> gen, int quantity)
+    @NotNull
+    public static <T> CollectionData<T> list(@NotNull Generator<T> gen, int quantity)
     {
         return new CollectionData<T>(gen, quantity);
     }

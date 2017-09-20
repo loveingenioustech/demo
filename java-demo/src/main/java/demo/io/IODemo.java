@@ -1,5 +1,7 @@
 package demo.io;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -68,7 +70,7 @@ public class IODemo
      * @param out
      *            a print writer
      */
-    static void writeData(Employee[] employees, PrintWriter out) throws IOException
+    static void writeData(@NotNull Employee[] employees, @NotNull PrintWriter out) throws IOException
     {
         // write number of employees
         out.println(employees.length);
@@ -84,7 +86,8 @@ public class IODemo
      *            the buffered reader
      * @return the array of employees
      */
-    static Employee[] readData(BufferedReader in) throws IOException
+    @NotNull
+    static Employee[] readData(@NotNull BufferedReader in) throws IOException
     {
         // retrieve the array size
         int n = Integer.parseInt(in.readLine());

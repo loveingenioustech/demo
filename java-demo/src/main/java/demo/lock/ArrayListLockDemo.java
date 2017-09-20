@@ -1,5 +1,7 @@
 package demo.lock;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import java.util.List;
  */
 public class ArrayListLockDemo implements Runnable{
     // ArrayList 是线程不安全的
+    @NotNull
     public static List<Integer> numberList =new ArrayList<Integer>();
 
     int startnum=0;

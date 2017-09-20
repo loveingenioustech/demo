@@ -1,5 +1,7 @@
 package demo.util;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * 类名称：BasicGenerator
  * 类描述：基本生成器
@@ -32,6 +34,7 @@ public class BasicGenerator<T> implements Generator<T>
     }
 
     // Produce a Default generator given a type token:
+    @NotNull
     public static <T> Generator<T> create(Class<T> type)
     {
         return new BasicGenerator<T>(type);

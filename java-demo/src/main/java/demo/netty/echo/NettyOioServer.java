@@ -15,6 +15,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.oio.OioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.oio.OioServerSocketChannel;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 类名称：NettyOioServer
@@ -41,7 +42,7 @@ public class NettyOioServer
                     .childHandler(new ChannelInitializer<SocketChannel>()
                     { // 3
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception
+                        public void initChannel(@NotNull SocketChannel ch) throws Exception
                         {
                             ch.pipeline().addLast(new ChannelInboundHandlerAdapter()
                             { // 4

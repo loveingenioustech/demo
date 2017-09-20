@@ -5,6 +5,7 @@ import static org.junit.runner.Description.createTestDescription;
 
 import java.util.List;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.runner.Description;
 import org.junit.runner.Runner;
 import org.junit.runner.notification.Failure;
@@ -14,14 +15,16 @@ import org.junit.runners.model.TestClass;
 
 public class Executor extends Runner {
 	private final List<FrameworkMethod> methods;
-	private final TestClass meta;
+	@NotNull
+    private final TestClass meta;
 
 	public Executor(Class<?> testType) {
 		meta = new TestClass(testType);
 		methods = meta.getAnnotatedMethods(Execute.class);
 	}
 
-	@Override
+	@NotNull
+    @Override
 	public Description getDescription() {
 		Description result = createClassDescription();
 
@@ -30,11 +33,11 @@ public class Executor extends Runner {
 	}
 
 	@Override
-	public void run(RunNotifier notifier) {
+	public void run(@NotNull RunNotifier notifier) {
 		methods.forEach(method -> run(notifier, method));
 	}
 
-	private void run(RunNotifier notifier, FrameworkMethod method) {
+	private void run(@NotNull RunNotifier notifier, @NotNull FrameworkMethod method) {
 		Description description = createMethodDescription(method);
 		notifier.fireTestStarted(description);
 		
@@ -55,7 +58,7 @@ public class Executor extends Runner {
 		return createSuiteDescription(name, annotations);
 	}
 
-	private Description createMethodDescription(FrameworkMethod method) {
+	private Description createMethodDescription(@NotNull FrameworkMethod method) {
 		return createTestDescription(meta.getClass(), method.getName());
 	}
 

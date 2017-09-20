@@ -1,9 +1,13 @@
 package demo.Performance;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Created by Administrator on 2017-08-01.
  */
 public class CanReliveObj {
+    @Nullable
     public static CanReliveObj obj;
 
     @Override
@@ -14,6 +18,7 @@ public class CanReliveObj {
         // 复活了对象
     }
 
+    @NotNull
     @Override
     public String toString(){
         return "I am CanReliveObj";

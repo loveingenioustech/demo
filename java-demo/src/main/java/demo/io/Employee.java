@@ -1,5 +1,7 @@
 package demo.io;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +24,7 @@ public class Employee
 
     }
 
-    public Employee(String name, int age, double salary, int year, int month, int day)
+    public Employee(@NotNull String name, int age, double salary, int year, int month, int day)
     {
         System.out.println(name + ": " + name.getBytes().length + " : " + name.length());
 
@@ -57,7 +59,7 @@ public class Employee
      * @param out
      *            the print writer
      */
-    public void writeData(PrintWriter out) throws IOException
+    public void writeData(@NotNull PrintWriter out) throws IOException
     {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(hireDay);
@@ -71,7 +73,7 @@ public class Employee
      * @param in
      *            the buffered reader
      */
-    public void readData(BufferedReader in) throws IOException
+    public void readData(@NotNull BufferedReader in) throws IOException
     {
         String s = in.readLine();
         StringTokenizer t = new StringTokenizer(s, "|");
@@ -144,6 +146,7 @@ public class Employee
         return len;
     }
 
+    @NotNull
     @Override
     public String toString()
     {

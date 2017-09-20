@@ -1,5 +1,7 @@
 package demo.util;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * 类名称：CountingGenerator
  * 类描述：计数生成器
@@ -26,12 +28,14 @@ public class CountingGenerator
     {
         private byte value = 0;
 
+        @NotNull
         public java.lang.Byte next()
         {
             return value++;
         }
     }
 
+    @NotNull
     static char[] chars = ("abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
 
     public static class Character implements Generator<java.lang.Character>
@@ -48,6 +52,7 @@ public class CountingGenerator
     public static class String implements Generator<java.lang.String>
     {
         private int length = 7;
+        @NotNull
         Generator<java.lang.Character> cg = new Character();
 
         public String()
@@ -59,6 +64,7 @@ public class CountingGenerator
             this.length = length;
         }
 
+        @NotNull
         public java.lang.String next()
         {
             char[] buf = new char[length];
@@ -72,6 +78,7 @@ public class CountingGenerator
     {
         private short value = 0;
 
+        @NotNull
         public java.lang.Short next()
         {
             return value++;
@@ -82,6 +89,7 @@ public class CountingGenerator
     {
         private int value = 0;
 
+        @NotNull
         public java.lang.Integer next()
         {
             return value++;
@@ -92,6 +100,7 @@ public class CountingGenerator
     {
         private long value = 0;
 
+        @NotNull
         public java.lang.Long next()
         {
             return value++;

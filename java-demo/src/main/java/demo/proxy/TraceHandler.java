@@ -1,5 +1,8 @@
 package demo.proxy;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -13,7 +16,7 @@ public class TraceHandler implements InvocationHandler
     }
 
     @Override
-    public Object invoke(Object proxy, Method m, Object[] args) throws Throwable
+    public Object invoke(Object proxy, @NotNull Method m, @Nullable Object[] args) throws Throwable
     {
         // print implicit argument
         System.out.print(target);
