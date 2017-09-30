@@ -1,5 +1,8 @@
 package demo.algorithm;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +16,7 @@ public class Searchs
      * @param numbers
      * @return
      */
-    public static int binarySearch(int key, int[] numbers)
+    public static int binarySearch(int key, @NotNull int[] numbers)
     {
         // precondition: array numbers[] is sorted
         int[] sortedNumbers = Arrays.copyOf(numbers, numbers.length);
@@ -43,7 +46,7 @@ public class Searchs
      * @param numbers
      * @return
      */
-    public static boolean binarySearch(final Integer key, final List<Integer> numbers)
+    public static boolean binarySearch(@NotNull final Integer key, @Nullable final List<Integer> numbers)
     {
         if (numbers == null || numbers.isEmpty())
         {

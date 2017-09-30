@@ -1,5 +1,7 @@
 package demo.basic;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
@@ -20,6 +22,7 @@ public class CloneObject implements Cloneable
         this.salary = salary;
     }
 
+    @NotNull
     public CloneObject clone() throws CloneNotSupportedException
     {
         // call Object.clone()
@@ -123,6 +126,7 @@ public class CloneObject implements Cloneable
      * @return
      * @see java.lang.Object#toString()
      */
+    @NotNull
     @Override
     public String toString()
     {

@@ -1,5 +1,8 @@
 package demo.collection;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -51,6 +54,7 @@ public class StackDemo
 
 class SimpleStack
 {
+    @NotNull
     private final List values;
 
     public SimpleStack()
@@ -68,6 +72,7 @@ class SimpleStack
         values.add(0, object);
     }
 
+    @Nullable
     public Object pop()
     {
         if (values.size() == 0)

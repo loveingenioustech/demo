@@ -1,5 +1,7 @@
 package demo.pattern;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.io.Serializable;
 
 /**
@@ -19,6 +21,7 @@ public class Singleton implements Serializable
      */
     private static final long serialVersionUID = 6129522708629706278L;
 
+    @Nullable
     private volatile static Singleton instance = null;
 
     private String identifier = "1000";
@@ -32,6 +35,7 @@ public class Singleton implements Serializable
         }
     }
 
+    @Nullable
     public static Singleton getInstance()
     {
         if (instance == null)
@@ -57,6 +61,7 @@ public class Singleton implements Serializable
         this.identifier = identifier;
     }
 
+    @Nullable
     protected Object readResolve()
     {
         return getInstance();

@@ -7,6 +7,7 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 类名称：EchoServerHandler
@@ -37,7 +38,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
+    public void exceptionCaught(ChannelHandlerContext ctx, @NotNull Throwable cause) throws Exception
     {
         cause.printStackTrace();
         ctx.close();

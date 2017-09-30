@@ -9,6 +9,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import org.jetbrains.annotations.NotNull;
 
 public class EchoClient
 {
@@ -31,7 +32,7 @@ public class EchoClient
                     .handler(new ChannelInitializer<SocketChannel>()
                     {
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception
+                        public void initChannel(@NotNull SocketChannel ch) throws Exception
                         {
                             ch.pipeline().addLast(new EchoClientHandler());
                         }

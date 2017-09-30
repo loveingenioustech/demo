@@ -1,5 +1,7 @@
 package demo.basic;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 
 public class EnumDemo
@@ -21,7 +23,7 @@ public class EnumDemo
         }        
     }
 
-    private static void printValid(IntelligentFieldType field, String fieldValue, boolean valid)
+    private static void printValid(@NotNull IntelligentFieldType field, String fieldValue, boolean valid)
     {
         System.out.println(field.getFieldName() + "(\"" + fieldValue + "\") valid: " + valid);
     }

@@ -1,5 +1,7 @@
 package demo.collection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -32,11 +34,12 @@ public class DistinctSort {
      * @param <e>
      * @return
      */
-    public static <e> List<e> RemoveDuplicateAndSort (List<e> list) {
+    @NotNull
+    public static <e> List<e> RemoveDuplicateAndSort (@NotNull List<e> list) {
         return new ArrayList<e>(new LinkedHashSet<e>(list));
     }
 
-    private static void printList(List list){
+    private static void printList(@NotNull List list){
         for (Object o: list){
             System.out.print(o + " ");
         }

@@ -1,5 +1,7 @@
 package demo.basic;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,7 +23,8 @@ public class DatesDemo
         dd.demoCompare();
     }
 
-    public String formatDate(Calendar cal)
+    @NotNull
+    public String formatDate(@NotNull Calendar cal)
     {
         SimpleDateFormat simpleFormatter = new SimpleDateFormat("MMM dd yyyy hh:mm:ss aaa");
         return simpleFormatter.format(cal.getTime());

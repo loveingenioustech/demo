@@ -1,5 +1,7 @@
 package demo.algorithm;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Random;
 
 public class RandomDemo
@@ -177,7 +179,7 @@ public class RandomDemo
      * Precondition: array entries are nonnegative and their sum (very nearly)
      * equals 1.0.
      */
-    public static int discrete(double[] a)
+    public static int discrete(@NotNull double[] a)
     {
         double EPSILON = 1E-14;
         double sum = 0.0;
@@ -218,7 +220,7 @@ public class RandomDemo
     /**
      * Rearrange the elements of an array in random order.
      */
-    public static void shuffle(Object[] a)
+    public static void shuffle(@NotNull Object[] a)
     {
         int N = a.length;
         for (int i = 0; i < N; i++)
@@ -233,7 +235,7 @@ public class RandomDemo
     /**
      * Rearrange the elements of a double array in random order.
      */
-    public static void shuffle(double[] a)
+    public static void shuffle(@NotNull double[] a)
     {
         int N = a.length;
         for (int i = 0; i < N; i++)
@@ -248,7 +250,7 @@ public class RandomDemo
     /**
      * Rearrange the elements of an int array in random order.
      */
-    public static void shuffle(int[] a)
+    public static void shuffle(@NotNull int[] a)
     {
         int N = a.length;
         for (int i = 0; i < N; i++)
@@ -263,7 +265,7 @@ public class RandomDemo
     /**
      * Rearrange the elements of the subarray a[lo..hi] in random order.
      */
-    public static void shuffle(Object[] a, int lo, int hi)
+    public static void shuffle(@NotNull Object[] a, int lo, int hi)
     {
         if (lo < 0 || lo > hi || hi >= a.length)
             throw new RuntimeException("Illegal subarray range");
@@ -279,7 +281,7 @@ public class RandomDemo
     /**
      * Rearrange the elements of the subarray a[lo..hi] in random order.
      */
-    public static void shuffle(double[] a, int lo, int hi)
+    public static void shuffle(@NotNull double[] a, int lo, int hi)
     {
         if (lo < 0 || lo > hi || hi >= a.length)
             throw new RuntimeException("Illegal subarray range");
@@ -295,7 +297,7 @@ public class RandomDemo
     /**
      * Rearrange the elements of the subarray a[lo..hi] in random order.
      */
-    public static void shuffle(int[] a, int lo, int hi)
+    public static void shuffle(@NotNull int[] a, int lo, int hi)
     {
         if (lo < 0 || lo > hi || hi >= a.length)
             throw new RuntimeException("Illegal subarray range");

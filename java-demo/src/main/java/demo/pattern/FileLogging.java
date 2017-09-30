@@ -1,5 +1,7 @@
 package demo.pattern;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +16,7 @@ public class FileLogging implements Logging
     }
 
     @Override
-    public void write(final String message)
+    public void write(@NotNull final String message)
     {
         try
         {

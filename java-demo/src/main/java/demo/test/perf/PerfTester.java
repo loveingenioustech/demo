@@ -1,5 +1,8 @@
 package demo.test.perf;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 
 public class PerfTester<C>
@@ -7,15 +10,17 @@ public class PerfTester<C>
     public static int fieldWidth = 8;
     public static PerfTestParam[] defaultParams = PerfTestParam.array(10, 5000, 100, 5000, 1000, 5000, 10000, 500);
 
+    @Nullable
     protected C container;
     private String headline = "";
     private List<PerfTest<C>> tests;
 
     private static int sizeWidth = 5;
+    @NotNull
     private static String sizeField = "%" + sizeWidth + "s";
     private PerfTestParam[] paramList = defaultParams;
 
-    public PerfTester(C container, List<PerfTest<C>> tests)
+    public PerfTester(@Nullable C container, List<PerfTest<C>> tests)
     {
         this.container = container;
         this.tests = tests;
@@ -37,16 +42,19 @@ public class PerfTester<C>
      * @param size
      * @return
      */
+    @Nullable
     protected C initialize(int size)
     {
         return container;
     }
 
+    @NotNull
     private static String stringField()
     {
         return "%" + fieldWidth + "s";
     }
 
+    @NotNull
     private static String numberField()
     {
         return "%" + fieldWidth + "d";

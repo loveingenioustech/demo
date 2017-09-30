@@ -1,5 +1,7 @@
 package demo.util;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Random;
 
 /**
@@ -13,6 +15,7 @@ import java.util.Random;
  */
 public class RandomGenerator
 {
+    @NotNull
     private static Random r = new Random(47);
 
     public static class Boolean implements Generator<java.lang.Boolean>
@@ -25,6 +28,7 @@ public class RandomGenerator
 
     public static class Byte implements Generator<java.lang.Byte>
     {
+        @NotNull
         public java.lang.Byte next()
         {
             return (byte) r.nextInt();
@@ -58,6 +62,7 @@ public class RandomGenerator
 
     public static class Short implements Generator<java.lang.Short>
     {
+        @NotNull
         public java.lang.Short next()
         {
             return (short) r.nextInt();
@@ -96,6 +101,7 @@ public class RandomGenerator
             mod = modulo;
         }
 
+        @NotNull
         public java.lang.Long next()
         {
             return new java.lang.Long(r.nextInt(mod));
@@ -104,6 +110,7 @@ public class RandomGenerator
 
     public static class Float implements Generator<java.lang.Float>
     {
+        @NotNull
         public java.lang.Float next()
         {
             // Trim all but the first two decimal places:
@@ -114,6 +121,7 @@ public class RandomGenerator
 
     public static class Double implements Generator<java.lang.Double>
     {
+        @NotNull
         public java.lang.Double next()
         {
             long trimmed = Math.round(r.nextDouble() * 100);

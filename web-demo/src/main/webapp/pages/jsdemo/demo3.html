@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extending JavaScript – The Right Way</title>
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+
+</head>
+<body>
+
+<script>
+    // Add capitalize() to String
+    if (!String.prototype.capitalize) {
+        String.prototype.capitalize = function () {
+            return this.slice(0, 1).toUpperCase() + this.slice(1).toLowerCase();
+        }
+    }
+    var strings = "yay";
+    console.log(strings.capitalize());
+    // 这种方式会把 capitalize函数也打印出来，因为被当成了一个属性
+    for (i in strings) console.log(i + ":" + strings[i]);
+
+    if(!String.prototype.capitalize1)
+    {
+        Object.defineProperty(String.prototype, 'capitalize1',
+            {
+                value: function()
+                {
+                    return this.slice(0,1).toUpperCase() + this.slice(1).toLowerCase();
+                },
+                enumerable: false
+            });
+    }
+    console.log(strings.capitalize1());
+    // 默认情况下 enumerable 是true，设置false 就可以解决问题
+    for (i in strings) console.log(i + ":" + strings[i]);
+
+    // 其他有用的扩展函数
+    // String.pxToInt()
+    // Convert css px value like “200px” to an Integer.
+    if(!String.prototype.pxToInt)
+    {
+        Object.defineProperty(String.prototype, 'pxToInt',
+            {
+                value: function()
+                {
+                    return parseInt(this.split('px')[0]);
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("200px".pxToInt());
+
+    // String.isHex()
+    // Checks if string is valid Hex value such as “#CCC” or “#CACACA”.
+    if(!String.prototype.isHex)
+    {
+        Object.defineProperty(String.prototype, 'isHex',
+            {
+                value: function()
+                {
+                    return this.substring(0,1) == '#' &&
+                        (this.length == 4 || this.length == 7) &&
+                        /^[0-9a-fA-F]+$/.test(this.slice(1));
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("#ccc is hex? " + "#ccc".isHex());
+    console.log("#CACACA is hex? " + "#CACACA".isHex());
+    console.log("#CACAC is hex? " + "#CACAC".isHex());
+
+
+    // String.reverse()
+    // Reverse a string.
+    if(!String.prototype.reverse)
+    {
+        Object.defineProperty(String.prototype, 'reverse',
+            {
+                value: function()
+                {
+                    return this.split( '' ).reverse().join( '' );
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("abcde".reverse());
+
+    // String.wordCount()
+    // Count the number of words in a given string, words being separated by spaces.
+    if(!String.prototype.wordCount)
+    {
+        Object.defineProperty(String.prototype, 'wordCount',
+            {
+                value: function()
+                {
+                    return this.split(' ').length;
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("Robin is a good man".wordCount());
+
+    // String.htmlEntities()
+    // Converts HTML characters like < and > to HTML encoded special characters.
+    /*
+    if(!String.prototype.htmlEntities)
+    {
+        Object.defineProperty(String.prototype, 'htmlEntities',
+            {
+                value: function()
+                {
+                    // 这一行代码有问题
+                    return String(this).replace(/&/g, '&').replace(//g, '>').replace(/"/g, '"');
+                },
+                enumerable: false
+            });
+    }
+    */
+
+    // String.stripTags()
+    // Strips out all HTML tags from the string.
+    if(!String.prototype.stripTags)
+    {
+        Object.defineProperty(String.prototype, 'stripTags',
+            {
+                value: function()
+                {
+                    return this.replace(/<\/?[^>]+>/gi, '');
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("<p>Some HTML</p>".stripTags());
+
+    // String.trim()
+    // Removes all leading and trailing white space from string.
+    if(!String.prototype.trim)
+    {
+        Object.defineProperty(String.prototype, 'trim',
+            {
+                value: function()
+                {
+                    return this.replace(/^\s*/, "").replace(/\s*$/, "");
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("   Hahaha   ".trim());
+
+    // String.stripNonAlpha()
+    // Removes all non-alphanumeric characters from string.
+    if(!String.prototype.stripNonAlpha)
+    {
+        Object.defineProperty(String.prototype, 'stripNonAlpha',
+            {
+                value: function()
+                {
+                    return this.replace(/[^A-Za-z ]+/g, "");
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("abcd123ddd@".stripNonAlpha());
+
+    // Object.sizeof()
+    // The the size of an object, for example: {one: “and”, two: “and”} would equal 2
+    if(!Object.prototype.sizeof)
+    {
+        Object.defineProperty(Object.prototype, 'sizeof',
+            {
+                value: function()
+                {
+                    var counter = 0;
+                    for(index in this) counter++;
+
+                    return counter;
+                },
+                enumerable: false
+            });
+    }
+
+    console.log("dsfads".sizeof());
+</script>
+
+</body>
+</html>

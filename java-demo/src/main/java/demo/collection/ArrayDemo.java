@@ -1,5 +1,8 @@
 package demo.collection;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +36,8 @@ public class ArrayDemo
      *            an array of strings
      * @return a pair with the min and max value, or null if a is null or empty
      */
-    public static Pair<String> minmax(String[] a)
+    @Nullable
+    public static Pair<String> minmax(@Nullable String[] a)
     {
         if (a == null || a.length == 0)
             return null;
@@ -56,7 +60,8 @@ public class ArrayDemo
      *            an array of objects of type T
      * @return a pair with the min and max value, or null if a is null or empty
      */
-    public static <T extends Comparable> Pair<T> minmax(T[] a)
+    @Nullable
+    public static <T extends Comparable> Pair<T> minmax(@Nullable T[] a)
     {
         if (a == null || a.length == 0)
             return null;
@@ -131,7 +136,8 @@ public class ArrayDemo
      * @return a larger array that contains all elements of a. However, the
      *         returned array has type Object[], not the same type as a
      */
-    static Object[] badArrayGrow(Object[] a)
+    @NotNull
+    static Object[] badArrayGrow(@NotNull Object[] a)
     {
         int newLength = a.length * 11 / 10 + 10;
         // 用这种方式扩大数组，不行，会报类型转换错误
@@ -149,7 +155,7 @@ public class ArrayDemo
      *            fundamental type array
      * @return a larger array that contains all elements of a.
      */
-    static Object goodArrayGrow(Object a)
+    static Object goodArrayGrow(@NotNull Object a)
     {
         Class<?> cl = a.getClass();
         if (!cl.isArray())

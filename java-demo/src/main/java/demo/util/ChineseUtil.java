@@ -1,5 +1,7 @@
 package demo.util;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +9,15 @@ import java.util.Arrays;
 
 public class ChineseUtil
 {
-    public static void sortByPinyin(String[] zhArr)
+    public static void sortByPinyin(@NotNull String[] zhArr)
     {
         Collator cmp = Collator.getInstance(java.util.Locale.CHINA);
 
         Arrays.sort(zhArr, cmp);
     }
 
-    public static List<String> split2List(String content)
+    @NotNull
+    public static List<String> split2List(@NotNull String content)
     {
         char[] cArray = content.toCharArray();
         List<String> result = new ArrayList<String>();
@@ -29,7 +32,8 @@ public class ChineseUtil
         return result;
     }
 
-    public static String[] split2Array(String content)
+    @NotNull
+    public static String[] split2Array(@NotNull String content)
     {
         char[] cArray = content.toCharArray();
         String[] sArray = new String[cArray.length];

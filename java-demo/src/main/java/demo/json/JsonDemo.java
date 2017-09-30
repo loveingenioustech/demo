@@ -28,16 +28,21 @@ import com.github.stuxuhai.jpinyin.PinyinFormat;
 import com.github.stuxuhai.jpinyin.PinyinHelper;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings(value = { "unchecked" })
 public class JsonDemo
 {
+    @NotNull
     static TypeReference<HashMap<String, Object>> mapTypeRef = new TypeReference<HashMap<String, Object>>()
     {
     };
+    @NotNull
     static TypeReference<ArrayList<HashMap<String, Object>>> listTypeRef = new TypeReference<ArrayList<HashMap<String, Object>>>()
     {
     };
+    @NotNull
     static TypeReference<HashSet<String>> setTypeRef = new TypeReference<HashSet<String>>()
     {
     };
@@ -46,6 +51,7 @@ public class JsonDemo
 
     final static String FILE_NAME_PINYIN = "cityListByPinyin.json";
     final static String FILE_NAME_JUHE = "cityListByJuhe.json";
+    @NotNull
     static Set<String> ziwaixianSet = new HashSet<String>();
 
     public static void main(String[] args) throws Exception
@@ -263,12 +269,12 @@ public class JsonDemo
         }
     }
 
-    private static String translate2Pinyin(String cityName)
+    private static String translate2Pinyin(@NotNull String cityName)
     {
         return PinyinHelper.convertToPinyinString(cityName, "", PinyinFormat.WITHOUT_TONE);
     }
 
-    private static String findProvince(String cityName, List<Map<String, Object>> cityList)
+    private static String findProvince(String cityName, @NotNull List<Map<String, Object>> cityList)
     {
         String theCity;
         for (Map<String, Object> juhe : cityList)
@@ -359,6 +365,7 @@ public class JsonDemo
     public static final String DEF_CHATSET = "UTF-8";
     public static final int DEF_CONN_TIMEOUT = 30000;
     public static final int DEF_READ_TIMEOUT = 30000;
+    @NotNull
     public static String userAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
 
     // 配置您申请的KEY
@@ -417,7 +424,8 @@ public class JsonDemo
         return false;
     }
 
-    public static String net(String strUrl, Map<String, Object> params, String method) throws Exception
+    @Nullable
+    public static String net(String strUrl, @Nullable Map<String, Object> params, @Nullable String method) throws Exception
     {
         HttpURLConnection conn = null;
         BufferedReader reader = null;
@@ -481,7 +489,7 @@ public class JsonDemo
     }
 
     // 将map型转为请求参数型
-    public static String urlencode(Map<String, ?> data)
+    public static String urlencode(@NotNull Map<String, ?> data)
     {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, ?> i : data.entrySet())

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.google.common.primitives.Ints;
+import org.jetbrains.annotations.NotNull;
 
 public class Sorts
 {
@@ -15,7 +16,8 @@ public class Sorts
      * @param numbers
      * @return
      */
-    public static int[] bubbleSort(int[] numbers)
+    @NotNull
+    public static int[] bubbleSort(@NotNull int[] numbers)
     {
         // 是否交换完成
         boolean numbersSwitched;
@@ -46,7 +48,7 @@ public class Sorts
      * @param numbers
      * @return
      */
-    public static int[] insertSort(final int[] numbers)
+    public static int[] insertSort(@NotNull final int[] numbers)
     {
         // 新建一个空白List
         final List<Integer> sortedList = new LinkedList<Integer>();
@@ -73,7 +75,7 @@ public class Sorts
      * @param numbers
      * @return
      */
-    public static int[] mergeSort(final int[] numbers)
+    public static int[] mergeSort(@NotNull final int[] numbers)
     {
         if (numbers.length < 2)
         {
@@ -95,7 +97,7 @@ public class Sorts
      * @param right
      * @return
      */
-    private static int[] merge(final int[] left, final int[] right)
+    private static int[] merge(@NotNull final int[] left, @NotNull final int[] right)
     {
         int leftPtr = 0;
         int rightPtr = 0;
@@ -139,7 +141,8 @@ public class Sorts
      * @param numbers
      * @return
      */
-    public static int[] naturallySort(final int[] numbers)
+    @NotNull
+    public static int[] naturallySort(@NotNull final int[] numbers)
     {
         Arrays.sort(numbers);
         return numbers;
@@ -151,7 +154,8 @@ public class Sorts
      * @param numbers
      * @return
      */
-    public static int[] quickSort(final int[] numbers)
+    @NotNull
+    public static int[] quickSort(@NotNull final int[] numbers)
     {
         if (numbers.length < 2)
         {

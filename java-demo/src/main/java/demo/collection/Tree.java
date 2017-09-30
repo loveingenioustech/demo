@@ -1,9 +1,14 @@
 package demo.collection;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 public class Tree<E extends Comparable>
 {
     private E value;
+    @Nullable
     private Tree<E> left;
+    @Nullable
     private Tree<E> right;
 
     // constructors, getters and setters omitted
@@ -12,7 +17,7 @@ public class Tree<E extends Comparable>
         // TODO Auto-generated constructor stub
     }
 
-    public boolean search(final E toFind)
+    public boolean search(@NotNull final E toFind)
     {
         if (toFind.equals(value))
         {
@@ -25,7 +30,7 @@ public class Tree<E extends Comparable>
         return right != null && right.search(toFind);
     }
 
-    public void insert(final E toInsert)
+    public void insert(@NotNull final E toInsert)
     {
         if (toInsert.compareTo(value) < 0)
         {

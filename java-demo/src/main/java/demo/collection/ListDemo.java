@@ -14,20 +14,25 @@ import demo.test.perf.PerfTestParam;
 import demo.test.perf.PerfTester;
 import demo.util.CountingGenerator;
 import demo.util.RandomUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class ListDemo
 {
+    @NotNull
     static Random rand = new Random();
     static int reps = 1000;
 
+    @NotNull
     static List<PerfTest<List<Integer>>> tests = new ArrayList<PerfTest<List<Integer>>>();
+    @NotNull
     static List<PerfTest<LinkedList<Integer>>> qTests = new ArrayList<PerfTest<LinkedList<Integer>>>();
 
     static
     {
         tests.add(new PerfTest<List<Integer>>("add")
         {
-            public int test(List<Integer> list, PerfTestParam tp)
+            public int test(@NotNull List<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 int listSize = tp.size;
@@ -45,7 +50,7 @@ public class ListDemo
         });
         tests.add(new PerfTest<List<Integer>>("get")
         {
-            public int test(List<Integer> list, PerfTestParam tp)
+            public int test(@NotNull List<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops * reps;
                 int listSize = list.size();
@@ -60,7 +65,7 @@ public class ListDemo
         });
         tests.add(new PerfTest<List<Integer>>("set")
         {
-            public int test(List<Integer> list, PerfTestParam tp)
+            public int test(@NotNull List<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops * reps;
                 int listSize = list.size();
@@ -74,7 +79,7 @@ public class ListDemo
         });
         tests.add(new PerfTest<List<Integer>>("iteradd")
         {
-            public int test(List<Integer> list, PerfTestParam tp)
+            public int test(@NotNull List<Integer> list, PerfTestParam tp)
             {
                 final int LOOPS = 1000000;
                 int half = list.size() / 2;
@@ -89,7 +94,7 @@ public class ListDemo
         });
         tests.add(new PerfTest<List<Integer>>("insert")
         {
-            public int test(List<Integer> list, PerfTestParam tp)
+            public int test(@NotNull List<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 for (int i = 0; i < loops; i++)
@@ -102,7 +107,7 @@ public class ListDemo
         });
         tests.add(new PerfTest<List<Integer>>("remove")
         {
-            public int test(List<Integer> list, PerfTestParam tp)
+            public int test(@NotNull List<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -122,7 +127,7 @@ public class ListDemo
         // Tests for queue behavior:
         qTests.add(new PerfTest<LinkedList<Integer>>("addFirst")
         {
-            public int test(LinkedList<Integer> list, PerfTestParam tp)
+            public int test(@NotNull LinkedList<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -137,7 +142,7 @@ public class ListDemo
         });
         qTests.add(new PerfTest<LinkedList<Integer>>("addLast")
         {
-            public int test(LinkedList<Integer> list, PerfTestParam tp)
+            public int test(@NotNull LinkedList<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -152,7 +157,7 @@ public class ListDemo
         });
         qTests.add(new PerfTest<LinkedList<Integer>>("rmFirst")
         {
-            public int test(LinkedList<Integer> list, PerfTestParam tp)
+            public int test(@NotNull LinkedList<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -168,7 +173,7 @@ public class ListDemo
         });
         qTests.add(new PerfTest<LinkedList<Integer>>("rmLast")
         {
-            public int test(LinkedList<Integer> list, PerfTestParam tp)
+            public int test(@NotNull LinkedList<Integer> list, @NotNull PerfTestParam tp)
             {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -184,12 +189,12 @@ public class ListDemo
         });
     }
 
-    public static void main(String[] args)
+    public static void main(@NotNull String[] args)
     {
         demoPerf(args);
     }
 
-    private static void demoPerf(String[] args)
+    private static void demoPerf(@NotNull String[] args)
     {
         if (args.length > 0)
         {
@@ -238,6 +243,7 @@ public class ListDemo
             super(container, tests);
         }
 
+        @Nullable
         @Override
         protected List<Integer> initialize(int size)
         {

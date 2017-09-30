@@ -1,5 +1,7 @@
 package demo.collection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -8,6 +10,7 @@ import java.util.Set;
 public class CountingMapData extends AbstractMap<Integer, String>
 {
     private int size;
+    @NotNull
     private static String[] chars = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
 
     public CountingMapData(int size)
@@ -24,6 +27,7 @@ public class CountingMapData extends AbstractMap<Integer, String>
      * @return
      * @see java.util.AbstractMap#entrySet()
      */
+    @NotNull
     @Override
     public Set<java.util.Map.Entry<Integer, String>> entrySet()
     {
@@ -56,11 +60,13 @@ public class CountingMapData extends AbstractMap<Integer, String>
             return index;
         }
 
+        @NotNull
         public String getValue()
         {
             return chars[index % chars.length] + Integer.toString(index / chars.length);
         }
 
+        @NotNull
         public String setValue(String value)
         {
             throw new UnsupportedOperationException();
