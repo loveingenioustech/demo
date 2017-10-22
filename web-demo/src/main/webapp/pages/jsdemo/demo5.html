@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Soce</title>
+</head>
+<body>
+
+<script>
+    window.a = 2;
+
+    (function IIFE( global ){
+        var a = 3;
+        console. log( a ); // 3
+        console. log( global.a ); // 2
+    })( window);
+
+    // 闭包
+    // 1. 函数b嵌套在函数a内部。
+    // 2. 函数a返回函数b。
+    function fa() {
+        var i = 0;
+        function fb() {
+            alert(++i);
+        }
+        return fb;
+    }
+    var fc = fa();
+    fc();
+
+    // 垃圾回收机制
+    // 在Javascript中，如果一个对象不再被引用，那么这个对象就会被GC回收。
+    // 如果两个对象互相引用，而不再被第3者所引用，那么这两个互相引用的对象也会被回收。
+    // 因为函数fa被fb引用，fb又被fa外的fc引用，这就是为什么函数fa执行后不会被回收的原因。
+</script>
+</body>
+</html>
