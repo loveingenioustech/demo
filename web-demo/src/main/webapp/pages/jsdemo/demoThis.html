@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+<body>
+<script>
+    // Explicitly setting the this reference
+    function setVar(arg) {
+        this.var = arg;
+    }
+    var obj = Object.create(null);
+    obj.setVar = setVar;
+    obj.setVar('hello');
+    console.log(obj.var); // => 'hello'
+
+    // Setting the this reference using “call” or “apply”
+    // using call
+    function setVar2(arg) {
+        this.var = arg;
+    }
+    var obj2 = Object.create(null);
+    setVar2.call(obj2,'hello2');
+    console.log(obj2.var); // => 'hello2'
+
+    // using apply
+    function setVar3(arg) {
+        this.var = arg;
+    }
+    var obj3 = Object.create(null);
+    setVar3.apply(obj3,['hello3']);
+    console.log(obj3.var); // => 'hello3'
+
+    // Inside every function call, the this reference is reset.
+    function outer() {
+        this.foo = 'blah';
+        function inner() {
+            console.log(this.foo);
+        }
+        inner();
+    }
+    var obj4 = Object.create(null);
+    outer.call(obj4); // undefined
+    // The this reference in outer is set to obj since we are explicitly doing this by the call() function.
+    // However, in inner() the this reference points to a different object, which is why logging the foo property of this in inner() resulted in undefined.
+
+    // capture the this reference
+    function outer2() {
+        var that = this;
+        that.foo = 'blah';
+        function inner() {
+            console.log(that.foo);
+        }
+        inner();
+    }
+    var obj5 = Object.create(null);
+    outer2.call(obj5);
+
+    // Using the bind function
+    function setFoo() {
+        this.foo = 'bar';
+    }
+    var obj6 = Object.create(null);
+    var boundSetFoo = setFoo.bind(obj6);
+    boundSetFoo();
+    console.log(obj6.foo); // 'bar'
+
+</script>
+</body>
+</html>
